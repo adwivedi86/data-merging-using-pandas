@@ -1,0 +1,207 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[50]:
+
+
+import pandas as pd
+
+csv = pd.read_csv("Jan2012.csv")
+
+
+# In[51]:
+
+
+csv.index.values
+
+
+# In[52]:
+
+
+csv =  csv.reset_index()
+
+
+# In[58]:
+
+
+csv.drop(index = [6,7,8,9,10],inplace = True)
+
+
+# In[62]:
+
+
+csv.columns
+
+
+# In[63]:
+
+
+csv.drop(['index'],axis =1 ,inplace = True)
+
+
+# In[64]:
+
+
+csv
+
+
+# In[65]:
+
+
+# use skiprows if you want to skip headers
+df_csv = pd.DataFrame(data=csv)
+transposed_csv = df_csv.T
+
+
+# In[66]:
+
+
+df = pd.DataFrame(transposed_csv)
+
+
+# In[68]:
+
+
+df
+
+
+# In[67]:
+
+
+df.columns
+
+
+# In[92]:
+
+
+import pandas as pd
+
+csv1 = pd.read_csv("feb2012.csv")
+
+
+# In[93]:
+
+
+csv1.index.values
+
+
+# In[94]:
+
+
+csv1 =  csv1.reset_index()
+
+
+# In[95]:
+
+
+csv1.columns
+
+
+# In[97]:
+
+
+csv1.drop(['AVERAGE'], axis=1, inplace= True)
+
+
+# In[112]:
+
+
+csv1.drop(['index'], axis=1, inplace= True)
+
+
+# In[113]:
+
+
+csv1.drop(index = [5],inplace = True)
+
+
+# In[114]:
+
+
+csv1_top = csv1.head()  
+
+
+# In[115]:
+
+
+# use skiprows if you want to skip headers
+df_csv1 = pd.DataFrame(data=csv1)
+transposed_csv1 = df_csv1.T
+
+
+# In[116]:
+
+
+transposed_csv1 
+
+
+# In[119]:
+
+
+df1 = pd.DataFrame(transposed_csv)
+
+
+# In[120]:
+
+
+df2 = pd.DataFrame(transposed_csv1)
+
+
+# In[122]:
+
+
+df3 = pd.concat([df1, df2])
+
+
+# In[127]:
+
+
+df3.head()
+
+
+# In[130]:
+
+
+df3
+
+
+# In[133]:
+
+
+df3.drop(['Average'], axis= 0)
+
+
+# In[134]:
+
+
+df3.to_csv(r'/home/akhilesh/Desktop/JandFMM.csv')
+
+
+# In[142]:
+
+
+df3 =df3.drop('AVERAGE')
+
+
+# In[146]:
+
+
+df3.iloc[32]
+
+
+# In[147]:
+
+
+df3 =df3.drop('DELHI MURGA MARKET RATES - ( February-2012 )')
+
+
+# In[148]:
+
+
+df3
+
+
+# In[149]:
+
+
+df3.to_csv(r'/home/akhilesh/Desktop/JandFMM.csv')
